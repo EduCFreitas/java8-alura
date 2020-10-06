@@ -29,6 +29,9 @@ public class OrdenaStrings {
 		palavras.forEach(impressor);
 		// A linha de cima corresponde à debaixo
 		palavras.forEach(s -> System.out.println(s));
+		
+		// Simplificando Thread com lambda
+		new Thread(() -> System.out.println("Executando um Runnable")).start();
 
 	}
 
