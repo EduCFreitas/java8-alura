@@ -90,7 +90,6 @@ public class ExemploCursos {
 				.filter(c -> c.getAlunos() > 50)
 				.collect(Collectors.toList());
 		
-		
 		// Criando stream de String contendo nomes de cursos
 		Stream<String> nomes = cursos.stream()
 				.map(Curso::getNome);
