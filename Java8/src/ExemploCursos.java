@@ -77,10 +77,19 @@ public class ExemploCursos {
 			.average();
 		System.out.println("Média de alunos: " + mediaAlunos);
 		
+		
 		//Imprimir cursos com mais de 50 alunos
-		cursos.stream()
-			.filter(c -> c.getAlunos() > 50)
-			.findFirst();
+		Stream<Curso> stream = cursos.stream()
+			.filter(c -> c.getAlunos() > 50);
+		
+		//Primeiro curso filtrado
+		Optional<Curso> primeiro = stream.findFirst();
+		
+		//Coletando resultado do Stream em uma List
+		List<Curso> cursosFiltrados = cursos.stream()
+				.filter(c -> c.getAlunos() > 50)
+				.collect(Collectors.toList());
+		
 		
 		// Criando stream de String contendo nomes de cursos
 		Stream<String> nomes = cursos.stream()
