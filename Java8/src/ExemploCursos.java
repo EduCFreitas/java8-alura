@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -42,17 +46,32 @@ public class ExemploCursos {
 		//cursos.forEach(c -> System.out.println(c.getNome()));
 		
 		// Método stream não altera a coleção original
-		int soma = cursos.stream()
+		OptionalDouble media = cursos.stream()
 			.filter(c -> c.getAlunos() >= 100)
 			// Imprime
 			//.forEach(c -> System.out.println(c.getNome()));
 			//.map(c -> c.getAlunos())
 			.mapToInt(Curso::getAlunos)
-			.sum();
+			.average();
 		
-		System.out.println(soma);
+		System.out.println(media);
 		
-		//Imprimir cursos com mais de 500 alunos
+		System.out.println("------------------");
+		/*cursos.stream()
+			.filter(c -> c.getAlunos() >= 100)
+			.findAny()
+			.ifPresent(c -> System.out.println(c.getNome()));*/
+		
+		cursos.parallelStream()
+			.filter(c -> c.getAlunos() >= 100)
+			.collect(Collectors.toMap(
+					c -> c.getNome(),
+					c -> c.getAlunos()))
+			.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + " alunos"));
+		
+		System.out.println("------------------");
+		
+		//Imprimir cursos com mais de 50 alunos
 		cursos.stream()
 			.filter(c -> c.getAlunos() > 50)
 			.forEach(c -> System.out.println(c.getNome()));
