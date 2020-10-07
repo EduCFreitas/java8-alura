@@ -74,7 +74,7 @@ public class ExemploCursos {
 		//Imprimir cursos com mais de 50 alunos
 		cursos.stream()
 			.filter(c -> c.getAlunos() > 50)
-			.forEach(c -> System.out.println(c.getNome()));
+			.findFirst();
 		
 		// Criando stream de String contendo nomes de cursos
 		Stream<String> nomes = cursos.stream()
