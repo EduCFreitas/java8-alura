@@ -71,6 +71,12 @@ public class ExemploCursos {
 		
 		System.out.println("------------------");
 		
+		//Cálculo da média de alunos nos cursos
+		OptionalDouble mediaAlunos = cursos.stream()
+			.mapToInt(c -> c.getAlunos())
+			.average();
+		System.out.println("Média de alunos: " + mediaAlunos);
+		
 		//Imprimir cursos com mais de 50 alunos
 		cursos.stream()
 			.filter(c -> c.getAlunos() > 50)
