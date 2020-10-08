@@ -3,7 +3,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.Period;
-import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 
 public class Datas {
@@ -42,6 +41,9 @@ public class Datas {
 		System.out.println("-----------------");
 		LocalTime intervalo = LocalTime.of(15, 30);
 		System.out.println(intervalo);
+
+		System.out.println("-----------------");
+		LocalDate futuro = LocalDate.of(2099, Month.JANUARY, 25);
 
 	}
 
