@@ -46,6 +46,8 @@ public class Datas {
 		LocalDate futuro = LocalDate.of(2099, Month.JANUARY, 25);
 		
 		Period periodoFuturo = Period.between(hoje, futuro);
+		
+		System.out.println(hoje.format(formatador));
 
 	}
 
