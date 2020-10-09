@@ -1,2 +1,2 @@
 # java8-alura
-Repositório para curso de Java 8 da Alura
+Repositório para cursos de Java 8 da Alura
